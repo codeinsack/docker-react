@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t codeinsack/docker-react .
+  - docker build -t codeinsack/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run codeinsack/docker-react
+  - docker run codeinsack/docker-react npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
